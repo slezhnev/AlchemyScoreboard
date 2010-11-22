@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Alchemy.iml" filepath="$PROJECT_DIR$/Alchemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AlchemyScoreboard.iml" filepath="$PROJECT_DIR$/AlchemyScoreboard.iml" />
     </modules>
   </component>
 </project>

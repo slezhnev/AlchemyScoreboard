@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello World, Lop!</string>
     <string name="app_name"></string>
+    <string name="playerName">Имя игрока</string>
 </resources>

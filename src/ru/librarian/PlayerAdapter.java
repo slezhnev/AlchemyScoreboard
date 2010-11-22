@@ -42,12 +42,12 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             TextView tt = (TextView) v.findViewById(leftTextViewId);
             TextView bt = (TextView) v.findViewById(rightTextViewId);
             if (tt != null) {
-                tt.setFocusableInTouchMode(true);
+                //tt.setFocusableInTouchMode(true);
                 tt.setTextColor(o.getColor());
                 tt.setText(o.getPlayerName());
             }
             if (bt != null) {
-                bt.setFocusableInTouchMode(true);
+                //bt.setFocusableInTouchMode(true);
                 if (o.getScore() >= 0) {
                     bt.setTextColor(Color.parseColor("#99FF99"));
                 } else {

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2010. Сергей Лежнев
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="3dp"
+                  android:textSize="14sp"
+                  android:textStyle="bold"
+                  android:text="@string/playerName"/>
+        <EditText android:id="@+id/playerNameEdt"
+                  android:layout_marginTop="2dp"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="12sp"/>
+        <View
+                android:background="#C0C0C0"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="3dp"
+                android:padding="3dp"/>
+        <TextView
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Цвет игрока:"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <View
+                android:id="@+id/playerColorView"
+                android:background="#FFFFFF"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="3dp"
+                android:padding="3dp"/>
+        <Button android:text="Выбрать"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:onClick="colorSelectionClick"/>
+    </LinearLayout>
+    <TableLayout
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentBottom="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2"
+            android:padding="2dp">
+        <TableRow>
+            <Button android:id="@+id/playerParamOk"
+                    android:layout_column="1"
+                    android:text="Сохранить"
+                    android:gravity="center_horizontal|center_vertical"/>
+            <Button android:id="@+id/playerParamDelete"
+                    android:text="Удалить"
+                    android:gravity="center_horizontal|center_vertical"/>
+        </TableRow>
+        <TableRow>
+            <Button android:id="@+id/playerParamCancel"
+                    android:layout_column="1"
+                    android:layout_span="2"
+                    android:text="Отмена"
+                    android:gravity="center_horizontal|center_vertical"/>
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
