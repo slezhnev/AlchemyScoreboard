@@ -11,6 +11,6 @@
         <activity android:name=".TurnActivity" android:label="Текущий ход"/>
         <activity android:name=".PlayersActivity" android:label="Игроки"/>
         <activity android:name=".HistoryActivity" android:label="История"/>
-        <activity android:name=".PlayerParamActivity"/>
+        <activity android:name=".PlayerParamActivity" android:label="Параметры игрока"/>
     </application>
 </manifest>

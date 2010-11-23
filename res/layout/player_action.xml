@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2010. Сергей Лежнев
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:padding="10dp">
+    <Button android:id="@+id/playerActionMoveUp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Сдвинуть в списке вверх"/>
+    <Button android:id="@+id/playerActionMoveDown"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Сдвинуть в списке вниз"/>
+    <Button android:id="@+id/playerActionEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Изменить имя / цвет"/>
+    <Button android:id="@+id/playerActionDelete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Удалить игрока"/>
+
+</LinearLayout>

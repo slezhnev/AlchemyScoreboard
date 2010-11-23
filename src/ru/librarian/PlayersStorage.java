@@ -7,6 +7,7 @@ package ru.librarian;
 import android.graphics.Color;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -65,8 +66,9 @@ public class PlayersStorage {
 
     /**
      * Рассылка нотификаций об изменений по адаптерам
+     * А public он - потому что используется в PlayersActivity...
      */
-    private static void playersChanged() {
+    public static void playersChanged() {
         for (PlayerAdapter adapter : playersAdapters) {
             adapter.notifyDataSetChanged();
         }
@@ -102,17 +104,61 @@ public class PlayersStorage {
     }
 
     /**
-     * Установка цветового выделения игрока
+     * Установка имени и цвета игрока
      *
-     * @param player Игрок, для которого выставляется цвет
-     * @param color  Выставляемый цвет
+     * @param currPlayerName Текущее имя игрока
+     * @param newPlayerName Новое имя игрока (может быть null - тогда не будет устанавливаться)
+     * @param color Цвет выделения игрока
      */
-    public static void setPlayerColor(Player player, int color) {
-        if ((player != null)&&(players.indexOf(player) != -1)) {
-            player.setColor(color);
+    public static void setPlayerParams(String currPlayerName, String newPlayerName, int color) {
+        if (currPlayerName != null) {
+            for (Player player : players) {
+                if (currPlayerName.equals(player.getPlayerName())) {
+                    // Нашли - пошли апдейтить
+                    if (newPlayerName != null) player.setPlayerName(newPlayerName);
+                    player.setColor(color);
+                    // Fire in the hole!
+                    playersChanged();
+                    if (currentPlayer == player) {
+                        setCurrentPlayer(currentPlayer);
+                    }
+                    // Завершаем
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
+     * Переместить игрока в списке игроков ВНИЗ
+     * @param player Игрок
+     */
+    public static void movePlayerDown ( Player player ) {
+        int p_i = players.indexOf(player); 
+        if ((player != null)&&(p_i != -1)&&(p_i != (players.size()-1))) {
+            Player nextPlayer = players.get(p_i+1);
+            players.set(p_i+1, player);
+            players.set(p_i, nextPlayer);
+            // Fire in the hole!
             playersChanged();
         }
     }
+
+    /**
+     * Переместить игрока в списке игроков ВВЕРХ
+     * @param player Игрок
+     */
+    public static void movePlayerUp ( Player player ) {
+        int p_i = players.indexOf(player);
+        if ((player != null)&&(p_i != -1)&&(p_i != 0)) {
+            Player nextPlayer = players.get(p_i-1);
+            players.set(p_i-1, player);
+            players.set(p_i, nextPlayer);
+            // Fire in the hole!
+            playersChanged();
+        }
+    }
+
 
     public static List<ChangeNotification> getCurrentPlayerChangeNotificators() {
         return currentPlayerChangeNotificators;
@@ -131,4 +177,33 @@ public class PlayersStorage {
             }
         }
     }
+
+    public static void removePlayer(String playerName) {
+        if (playerName == null) return;
+        for (Player player : players) {
+            if (playerName.equals(player.getPlayerName())) {
+                // Нашли. Поехали удалять, и прочее
+                if (player == currentPlayer) {
+                    if (players.size() > 1) {
+                        // А в этом случае сбросим селектор на первый или второй (второй - если первый удалем)
+                        if (players.get(0) == player) {
+                            setCurrentPlayer(players.get(1));
+                        } else {
+                            setCurrentPlayer(players.get(0));                            
+                        }
+                    } else {
+                        // Тут он всего один - он щас смело грохнется и все - список будет пустым
+                        setCurrentPlayer(null);
+                    }
+                }
+                // Удаляем
+                players.remove(player);
+                // fire in the hole!
+                playersChanged();
+                // Пошли отсель
+                break;
+            }
+        }
+    }
+
 }
