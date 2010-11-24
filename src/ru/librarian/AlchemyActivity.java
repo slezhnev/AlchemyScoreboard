@@ -52,4 +52,20 @@ public class AlchemyActivity extends TabActivity {
         tabHost.setCurrentTab(0);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Загрузим текущее
+        PlayersStorage.loadPlayers(this);        
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Сохраним текущее
+        PlayersStorage.savePlayers(this);
+    }
+
+    
+
 }

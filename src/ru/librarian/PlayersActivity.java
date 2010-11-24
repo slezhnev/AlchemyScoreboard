@@ -128,8 +128,12 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         } else if (v.getId() == R.id.playerActionMoveUp) {
             PlayersStorage.movePlayerUp(operationalPlayer);
             actionDialog.dismiss();
-        } else {
-            actionDialog.dismiss();
+        } else if (v.getId() == R.id.playersAddPlayer) {
+            // Добавляем...
+            Intent intent = new Intent().setClass(this, PlayerParamActivity.class);
+            intent.putExtra("ru.librarian.playerName", "");
+            intent.putExtra("ru.librarian.playerColor", Color.parseColor("#FFFFFF"));
+            startActivity(intent);
         }
     }
 }

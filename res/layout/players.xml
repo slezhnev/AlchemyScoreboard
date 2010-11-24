@@ -3,9 +3,9 @@
   ~ Copyright (c) 2010. Сергей Лежнев
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
     <ListView
             android:id="@+id/android:list"
@@ -14,5 +14,17 @@
             android:layout_height="fill_parent"
             android:choiceMode="none"
             android:longClickable="true"/>
+    <LinearLayout
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentBottom="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+        <Button android:id="@+id/playersAddPlayer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Добавить игрока"
+                android:onClick="onClick"/>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

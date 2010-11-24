@@ -5,6 +5,8 @@
 package ru.librarian;
 
 import android.app.ListActivity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,18 +33,13 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
         PlayersStorage.getPlayersAdapters().add(playerAdapter);
         // Добавляем нотификатор для обработок изменения текущего игрока
         PlayersStorage.getCurrentPlayerChangeNotificators().add(this);
-        //TODO Сделать загрузку текущего игрока!
-        PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(0));
+        //
+        //
+        //PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(0));
         //
         // И надо не забыть дернуть нотификацию прям тут! А то мало ли - вдруг список менялся?
         playerAdapter.notifyDataSetChanged();
         changeOccurs();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //TODO Сделать сохранение текущего выбранного игрока! 
     }
 
     @Override
@@ -64,7 +61,7 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
             int diff;
             try {
                 // Забавно, но +1 в int не конвертируется. Будем конвертировать по другому
-                diff = Integer.parseInt(((Button) v).getText().toString().replace('+',' ').trim());
+                diff = Integer.parseInt(((Button) v).getText().toString().replace('+', ' ').trim());
             } catch (NumberFormatException e) {
                 diff = 0;
             }
@@ -128,12 +125,12 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
             // Значит список совсем пустой - все дизейблим
             findViewById(R.id.prevTurnBtn).setEnabled(false);
             findViewById(R.id.nextTurnBtn).setEnabled(false);
-            ((TextView)findViewById(R.id.currPlayerName)).setText("-");
+            ((TextView) findViewById(R.id.currPlayerName)).setText("-");
         } else {
             boolean enabled = (PlayersStorage.getPlayers().size() > 1);
             findViewById(R.id.prevTurnBtn).setEnabled(enabled);
             findViewById(R.id.nextTurnBtn).setEnabled(enabled);
-            TextView currPlayerTxt = (TextView)findViewById(R.id.currPlayerName);
+            TextView currPlayerTxt = (TextView) findViewById(R.id.currPlayerName);
             Player currPlayer = PlayersStorage.getCurrentPlayer();
             currPlayerTxt.setTextColor(currPlayer.getColor());
             currPlayerTxt.setText(currPlayer.getPlayerName());
