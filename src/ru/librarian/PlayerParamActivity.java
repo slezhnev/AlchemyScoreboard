@@ -80,7 +80,7 @@ public class PlayerParamActivity extends Activity implements ColorPickerDialog.O
                 }
             }
             // А вот тут прям сразу все и проапдейтим
-            PlayersStorage.setPlayerParams(getIntent().getStringExtra("ru.librarian.playerName"),
+            PlayersStorage.setPlayerParams(this, getIntent().getStringExtra("ru.librarian.playerName"),
                     ((TextView) findViewById(R.id.playerNameEdt)).getText().toString(),
                     selectedColor);
             finish();

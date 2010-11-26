@@ -24,8 +24,9 @@ public class PlayersStorage {
      * Игроки
      * <b>ВНИМАНИЕ!</b> ПРЯМАЯ РАБОТА СО СПИСКОМ - ЗАПРЕЩЕНА!
      * Методы работы со списком - ниже. При работе напрямую - не будут вызываться
-     * обновления адаптеров!
+     * обновления адаптеров! Да и сохранятся ничего не будет
      */
+    //TODO Переделать на TreeMap - что-то я тут как-то ступил несколько
     private static ArrayList<Player> players = new ArrayList<Player>();
 
     /**
@@ -44,22 +45,13 @@ public class PlayersStorage {
      */
     private static Player currentPlayer = null;
 
+    /**
+     * Список ходов
+     */
+    private static List<Turn> turns = new ArrayList<Turn>();
+
     public static ArrayList<Player> getPlayers() {
         return players;
-    }
-
-    static {
-        players.add(new Player().setPlayerName("Игрок1").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок2").setColor(Color.parseColor("#CC00CC")).setScore(-5));
-        players.add(new Player().setPlayerName("Игрок3").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок4").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок5").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок6").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок7").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок8").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок9").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок10").setColor(Color.parseColor("#CC00CC")));
-        players.add(new Player().setPlayerName("Игрок11").setColor(Color.parseColor("#CC00CC")));
     }
 
     public static List<PlayerAdapter> getPlayersAdapters() {
@@ -79,13 +71,20 @@ public class PlayersStorage {
     /**
      * Изменение счета игрока
      *
+     * @param activity  Activity для сохранения игрока
      * @param player    Игрок, у которого меняется счет
      * @param scoreDiff На сколько меняется счет
      */
-    public static void addPlayerScore(Player player, int scoreDiff) {
+    public static void addPlayerScore(Activity activity, Player player, int scoreDiff) {
         if ((player != null) && (players.indexOf(player) != -1)) {
             player.setScore(player.getScore() + scoreDiff);
             playersChanged();
+            savePlayer(activity, player);
+            // Создаем turn!
+            Turn turn = new Turn();
+            turn.setPlayer(player).setScoreDiff(scoreDiff);
+            turns.add(turn);
+            saveTurn(activity, turn, turns.size()-1);
         }
     }
 
@@ -93,11 +92,12 @@ public class PlayersStorage {
      * Установка имени и цвета игрока.
      * Если currPlayerName == "", то игрок добавляется
      *
+     * @param activity       Activity для сохранения параметров игркоа
      * @param currPlayerName Текущее имя игрока
      * @param newPlayerName  Новое имя игрока (может быть null - тогда не будет устанавливаться)
      * @param color          Цвет выделения игрока
      */
-    public static void setPlayerParams(String currPlayerName, String newPlayerName, int color) {
+    public static void setPlayerParams(Activity activity, String currPlayerName, String newPlayerName, int color) {
         if ((currPlayerName != null) && (newPlayerName != null)) {
             // Вначале проверим - а нет ли у нас уже игрока с таким именем?
             boolean duplPlayerFound = false;
@@ -115,9 +115,12 @@ public class PlayersStorage {
                     player.setColor(color);
                     players.add(player);
                     playersChanged();
+                    //
+                    savePlayer(activity, player, players.size() - 1);
+                    //
                     // Если текущий пользователь не выбран - выбираем вот этого добавленного
                     if (currentPlayer == null) {
-                        setCurrentPlayer(player);
+                        setCurrentPlayer(activity, player);
                     }
                 } else {
                     for (Player player : players) {
@@ -128,9 +131,10 @@ public class PlayersStorage {
                             // Fire in the hole!
                             playersChanged();
                             if (currentPlayer == player) {
-                                setCurrentPlayer(currentPlayer);
+                                setCurrentPlayer(activity, currentPlayer);
                             }
                             // Завершаем
+                            savePlayer(activity, player);
                             break;
                         }
                     }
@@ -142,9 +146,10 @@ public class PlayersStorage {
     /**
      * Переместить игрока в списке игроков ВНИЗ
      *
-     * @param player Игрок
+     * @param activity Activity для сохранения параметров игркоа
+     * @param player   Игрок
      */
-    public static void movePlayerDown(Player player) {
+    public static void movePlayerDown(Activity activity, Player player) {
         int p_i = players.indexOf(player);
         if ((player != null) && (p_i != -1) && (p_i != (players.size() - 1))) {
             Player nextPlayer = players.get(p_i + 1);
@@ -152,15 +157,18 @@ public class PlayersStorage {
             players.set(p_i, nextPlayer);
             // Fire in the hole!
             playersChanged();
+            //
+            savePlayers(activity);
         }
     }
 
     /**
      * Переместить игрока в списке игроков ВВЕРХ
      *
-     * @param player Игрок
+     * @param activity Activity для сохранения параметров игркоа
+     * @param player   Игрок
      */
-    public static void movePlayerUp(Player player) {
+    public static void movePlayerUp(Activity activity, Player player) {
         int p_i = players.indexOf(player);
         if ((player != null) && (p_i != -1) && (p_i != 0)) {
             Player nextPlayer = players.get(p_i - 1);
@@ -168,6 +176,8 @@ public class PlayersStorage {
             players.set(p_i, nextPlayer);
             // Fire in the hole!
             playersChanged();
+            //
+            savePlayers(activity);
         }
     }
 
@@ -180,17 +190,26 @@ public class PlayersStorage {
         return currentPlayer;
     }
 
-    public static void setCurrentPlayer(Player currentPlayer) {
+    public static void setCurrentPlayer(Activity activity, Player currentPlayer) {
         // Выбирать мы можем только из игроков из общего списка
         if (players.indexOf(currentPlayer) != -1) {
             PlayersStorage.currentPlayer = currentPlayer;
             for (ChangeNotification notification : currentPlayerChangeNotificators) {
                 notification.changeOccurs();
             }
+            // Сохраняем текущего игрока
         }
+        SharedPreferences.Editor editor = activity.getSharedPreferences("AlchemyScoreboard.Players", Context.MODE_PRIVATE).edit();
+        if (PlayersStorage.currentPlayer != null) {
+            editor.putString("currentPlayer", PlayersStorage.currentPlayer.getPlayerName());
+        } else {
+            editor.remove("currentPlayer");
+        }
+        //
+        editor.commit();
     }
 
-    public static void removePlayer(String playerName) {
+    public static void removePlayer(Activity activity, String playerName) {
         if (playerName == null) return;
         for (Player player : players) {
             if (playerName.equals(player.getPlayerName())) {
@@ -199,46 +218,53 @@ public class PlayersStorage {
                     if (players.size() > 1) {
                         // А в этом случае сбросим селектор на первый или второй (второй - если первый удалем)
                         if (players.get(0) == player) {
-                            setCurrentPlayer(players.get(1));
+                            setCurrentPlayer(activity, players.get(1));
                         } else {
-                            setCurrentPlayer(players.get(0));
+                            setCurrentPlayer(activity, players.get(0));
                         }
                     } else {
                         // Тут он всего один - он щас смело грохнется и все - список будет пустым
-                        setCurrentPlayer(null);
+                        setCurrentPlayer(activity, null);
                     }
                 }
                 // Удаляем
                 players.remove(player);
                 // fire in the hole!
                 playersChanged();
+                // Сохраняем
+                savePlayers(activity);
                 // Пошли отсель
                 break;
             }
         }
     }
 
-    /**
-     * Сохранение списка игроков со счетом и текущим игроком
-     *
-     * @param activity Activity для получения preferences
-     */
     public static void savePlayers(Activity activity) {
+        // Сохраняем ВСЕХ игроков
+        for (int i = 0; i < players.size(); i++) {
+            savePlayer(activity, players.get(i), i);
+        }
+    }
+
+    public static void savePlayer(Activity activity, Player player) {
+        savePlayer(activity, player, players.indexOf(player));
+    }
+
+    /**
+     * Сохранение игрока со счетом
+     *
+     * @param activity  Activity для получения preferences
+     * @param player    Игрок для сохранения
+     * @param playerIdx Индекс игрока в players
+     */
+    public static void savePlayer(Activity activity, Player player, int playerIdx) {
         //
         SharedPreferences.Editor editor = activity.getSharedPreferences("AlchemyScoreboard.Players", Context.MODE_PRIVATE).edit();
-        if (currentPlayer != null) {
-            editor.putString("currentPlayer", currentPlayer.getPlayerName());
-        } else {
-            editor.remove("currentPlayer");
-        }
         // Поехали по игрокам
         editor.putInt("playersCount", players.size());
-        for (int i = 0; i < players.size(); i++) {
-            Player player = players.get(i);
-            editor.putString("player" + i + "Name", player.getPlayerName());
-            editor.putInt("player" + i + "Score", player.getScore());
-            editor.putInt("player" + i + "Color", player.getColor());
-        }
+        editor.putString("player" + playerIdx + "Name", player.getPlayerName());
+        editor.putInt("player" + playerIdx + "Score", player.getScore());
+        editor.putInt("player" + playerIdx + "Color", player.getColor());
         //
         editor.commit();
     }
@@ -270,20 +296,59 @@ public class PlayersStorage {
         String currPlayerName = prefs.getString("currentPlayer", null);
         if (currPlayerName == null) {
             if (PlayersStorage.getPlayers().size() > 0) {
-                PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(0));
+                PlayersStorage.setCurrentPlayer(activity, PlayersStorage.getPlayers().get(0));
             }
         } else {
             // А тут его надо поискать
             for (Player player : PlayersStorage.getPlayers()) {
                 if (currPlayerName.equals(player.getPlayerName())) {
                     // Нашли. Устанавливаем
-                    PlayersStorage.setCurrentPlayer(player);
+                    PlayersStorage.setCurrentPlayer(activity, player);
                     break;
                 }
             }
             if ((PlayersStorage.getCurrentPlayer() == null) && (PlayersStorage.getPlayers().size() > 0)) {
                 // Если вдруг текущего игрока не нашлось - то выставляем ПЕРВОГО
-                PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(0));
+                PlayersStorage.setCurrentPlayer(activity, PlayersStorage.getPlayers().get(0));
+            }
+        }
+    }
+
+    public static List<Turn> getTurns() {
+        return turns;
+    }
+
+    public static void saveTurn(Activity activity, Turn turn, int turnIdx) {
+        SharedPreferences.Editor editor = activity.getSharedPreferences("AlchemyScoreboard.Turns", Context.MODE_PRIVATE).edit();
+        editor.putInt("turnsCount", turns.size());
+        editor.putString("turn" + turnIdx + "Player", turn.getPlayer().getPlayerName());
+        editor.putInt("turn" + turnIdx + "ScoreDiff", turn.getScoreDiff());
+        editor.commit();
+    }
+
+    public static void saveTurns(Activity activity) {
+        for (int i = 0; i < turns.size(); i++) {
+            saveTurn ( activity, turns.get(i), i);
+        }
+    }
+
+    public static void loadTurns(Activity activity) {
+        SharedPreferences prefs = activity.getSharedPreferences("AlchemyScoreboard.Turns", Context.MODE_PRIVATE);
+        turns.clear();
+        int turnsTotal = prefs.getInt("turnsCount", 0);
+        for (int i = 0; i < turnsTotal; i++) {
+            String playerName = prefs.getString("turn" + i + "Player", null);
+            if (playerName != null) {
+                // Поехали искать этого игрока в списке игроков...
+                for (Player player : players) {
+                    if (playerName.equals(player.getPlayerName())) {
+                        // Все нашли...
+                        Turn turn = new Turn();
+                        turn.setPlayer(player);
+                        turn.setScoreDiff(prefs.getInt("turn" + i + "ScoreDiff", 0));
+                        turns.add(turn);
+                    }
+                }
             }
         }
     }

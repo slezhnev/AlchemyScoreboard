@@ -56,16 +56,9 @@ public class AlchemyActivity extends TabActivity {
     protected void onStart() {
         super.onStart();
         // Загрузим текущее
-        PlayersStorage.loadPlayers(this);        
+        PlayersStorage.loadPlayers(this);
+        PlayersStorage.loadTurns(this);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Сохраним текущее
-        PlayersStorage.savePlayers(this);
-    }
-
-    
 
 }

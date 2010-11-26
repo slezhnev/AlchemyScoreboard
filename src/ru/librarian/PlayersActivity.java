@@ -65,7 +65,7 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         //super.onActivityResult(requestCode, resultCode, data);
         // Теперь еще проверим чего там в extras вернулось
         if (data.hasExtra("ru.librarian.player_mustRemove")) {
-            PlayersStorage.removePlayer(data.getStringExtra("ru.librarian.playerName"));
+            PlayersStorage.removePlayer(this, data.getStringExtra("ru.librarian.playerName"));
         } else if ((data.hasExtra("ru.librarian.playerName_return")) && (data.getStringExtra("ru.librarian.playerName_return") != null)) {
             // А вот и оно. Меняем у него имя и цвет
             operationalPlayer.setPlayerName(data.getStringExtra("ru.librarian.playerName_return"));
@@ -110,7 +110,7 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
                     .setCancelable(false)
                     .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            PlayersStorage.removePlayer(PlayersActivity.this.operationalPlayer.getPlayerName());
+                            PlayersStorage.removePlayer(PlayersActivity.this, PlayersActivity.this.operationalPlayer.getPlayerName());
                             actionDialog.dismiss();
                             dialog.dismiss();
                         }
@@ -123,10 +123,10 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
                     });
             builder.create().show();
         } else if (v.getId() == R.id.playerActionMoveDown) {
-            PlayersStorage.movePlayerDown(operationalPlayer);
+            PlayersStorage.movePlayerDown(this, operationalPlayer);
             actionDialog.dismiss();
         } else if (v.getId() == R.id.playerActionMoveUp) {
-            PlayersStorage.movePlayerUp(operationalPlayer);
+            PlayersStorage.movePlayerUp(this, operationalPlayer);
             actionDialog.dismiss();
         } else if (v.getId() == R.id.playersAddPlayer) {
             // Добавляем...

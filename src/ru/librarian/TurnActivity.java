@@ -5,8 +5,7 @@
 package ru.librarian;
 
 import android.app.ListActivity;
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,7 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.turn);
         //
-        playerAdapter = new PlayerAdapter(this, R.layout.turn_row, R.id.turnLVLeftText, R.id.turnLVRightText);
+        playerAdapter = new PlayerAdapter(this, R.layout.current_turn_row, R.id.turnLVLeftText, R.id.turnLVRightText);
         setListAdapter(playerAdapter);
         //
     }
@@ -34,12 +33,11 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
         // Добавляем нотификатор для обработок изменения текущего игрока
         PlayersStorage.getCurrentPlayerChangeNotificators().add(this);
         //
-        //
-        //PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(0));
-        //
         // И надо не забыть дернуть нотификацию прям тут! А то мало ли - вдруг список менялся?
         playerAdapter.notifyDataSetChanged();
         changeOccurs();
+        // Обрабатываем отображение последнего хода!
+        lastTurnChange();
     }
 
     @Override
@@ -67,7 +65,8 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
             }
             if (diff != 0) {
                 if (PlayersStorage.getCurrentPlayer() != null) {
-                    PlayersStorage.addPlayerScore(PlayersStorage.getCurrentPlayer(), diff);
+                    PlayersStorage.addPlayerScore(this, PlayersStorage.getCurrentPlayer(), diff);
+                    lastTurnChange();
                 }
             }
         }
@@ -84,18 +83,18 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
             if (v.getId() == R.id.nextTurnBtn) {
                 if (currPos == (PlayersStorage.getPlayers().size() - 1)) {
                     // Значит - это последний. Пееходим в самое начало
-                    PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(0));
+                    PlayersStorage.setCurrentPlayer(this, PlayersStorage.getPlayers().get(0));
                 } else {
                     // Выбираем следующего
-                    PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(currPos + 1));
+                    PlayersStorage.setCurrentPlayer(this, PlayersStorage.getPlayers().get(currPos + 1));
                 }
             } else if (v.getId() == R.id.prevTurnBtn) {
                 if (currPos == 0) {
                     // Значит это первый - надо переходить на последнего
-                    PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(PlayersStorage.getPlayers().size() - 1));
+                    PlayersStorage.setCurrentPlayer(this, PlayersStorage.getPlayers().get(PlayersStorage.getPlayers().size() - 1));
                 } else {
                     // Выбираем предыдущего
-                    PlayersStorage.setCurrentPlayer(PlayersStorage.getPlayers().get(currPos - 1));
+                    PlayersStorage.setCurrentPlayer(this, PlayersStorage.getPlayers().get(currPos - 1));
                 }
             }
         }
@@ -134,6 +133,23 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
             Player currPlayer = PlayersStorage.getCurrentPlayer();
             currPlayerTxt.setTextColor(currPlayer.getColor());
             currPlayerTxt.setText(currPlayer.getPlayerName());
+        }
+    }
+
+    private void lastTurnChange() {
+        if (PlayersStorage.getTurns().size() > 0) {
+            // Отображаем последний ход!
+            Turn turn = PlayersStorage.getTurns().get(PlayersStorage.getTurns().size() - 1);
+            TextView pName = (TextView) findViewById(R.id.lastTurnName);
+            pName.setText(turn.getPlayer().getPlayerName());
+            pName.setTextColor(turn.getPlayer().getColor());
+            pName = (TextView) findViewById(R.id.lastTurnCount);
+            pName.setText("" + turn.getScoreDiff());
+            if (turn.getScoreDiff() >= 0) {
+                pName.setTextColor(Color.parseColor("#99FF99"));
+            } else {
+                pName.setTextColor(Color.parseColor("#FF9999"));
+            }
         }
     }
 }
