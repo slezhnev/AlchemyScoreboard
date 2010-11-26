@@ -50,6 +50,12 @@ public class PlayersStorage {
      */
     private static List<Turn> turns = new ArrayList<Turn>();
 
+    /**
+     * Список нотификаторов изменения списка ходов
+     */
+    private static List<TurnsChangeNotification> turnsChnageNotificators = Collections.synchronizedList(new ArrayList<TurnsChangeNotification>());
+
+    //
     public static ArrayList<Player> getPlayers() {
         return players;
     }
@@ -85,6 +91,16 @@ public class PlayersStorage {
             turn.setPlayer(player).setScoreDiff(scoreDiff);
             turns.add(turn);
             saveTurn(activity, turn, turns.size()-1);
+            turnsChanged();
+        }
+    }
+
+    /**
+     * Вызыватель нотификаторов об изменении списка ходов
+     */
+    private static void turnsChanged() {
+        for (TurnsChangeNotification notificator : turnsChnageNotificators) {
+            notificator.turnsChangeOccurs();
         }
     }
 
@@ -311,7 +327,7 @@ public class PlayersStorage {
                 // Если вдруг текущего игрока не нашлось - то выставляем ПЕРВОГО
                 PlayersStorage.setCurrentPlayer(activity, PlayersStorage.getPlayers().get(0));
             }
-        }
+        }        
     }
 
     public static List<Turn> getTurns() {
@@ -351,5 +367,10 @@ public class PlayersStorage {
                 }
             }
         }
+       turnsChanged();
+    }
+
+    public static List<TurnsChangeNotification> getTurnsChnageNotificators() {
+        return turnsChnageNotificators;
     }
 }

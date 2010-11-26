@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class TurnActivity extends ListActivity implements ChangeNotification {
+public class TurnActivity extends ListActivity implements ChangeNotification, TurnsChangeNotification {
 
     private PlayerAdapter playerAdapter;
 
@@ -32,6 +32,8 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
         PlayersStorage.getPlayersAdapters().add(playerAdapter);
         // Добавляем нотификатор для обработок изменения текущего игрока
         PlayersStorage.getCurrentPlayerChangeNotificators().add(this);
+        // обавляем нотификатор для изменения ходов
+        PlayersStorage.getTurnsChnageNotificators().add(this);
         //
         // И надо не забыть дернуть нотификацию прям тут! А то мало ли - вдруг список менялся?
         playerAdapter.notifyDataSetChanged();
@@ -47,6 +49,8 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
         PlayersStorage.getPlayersAdapters().remove(playerAdapter);
         // Убираем нотификатор
         PlayersStorage.getCurrentPlayerChangeNotificators().remove(this);
+        // Убираем еще нотификатор
+        PlayersStorage.getTurnsChnageNotificators().remove(this);        
     }
 
     /**
@@ -151,5 +155,9 @@ public class TurnActivity extends ListActivity implements ChangeNotification {
                 pName.setTextColor(Color.parseColor("#FF9999"));
             }
         }
+    }
+
+    public void turnsChangeOccurs() {
+        lastTurnChange();
     }
 }

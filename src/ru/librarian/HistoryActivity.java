@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
-public class HistoryActivity extends ListActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener {
+public class HistoryActivity extends ListActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener, TurnsChangeNotification {
 
     private HistoryAdapter historyAdapter;
 
@@ -26,16 +26,20 @@ public class HistoryActivity extends ListActivity implements AdapterView.OnItemL
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    protected void onStart() {
+        super.onStart();
+        // Добавляем нотификатор
+        PlayersStorage.getTurnsChnageNotificators().add(this);
+        // Не забудем еще обновить данные
         historyAdapter.notifyDataSetChanged();
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        historyAdapter.notifyDataSetChanged();
-    }    
+    protected void onStop() {
+        super.onStop();
+        // Убираем нотификатор
+        PlayersStorage.getTurnsChnageNotificators().remove(this);
+    }
 
     public void onClick(View view) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -43,5 +47,9 @@ public class HistoryActivity extends ListActivity implements AdapterView.OnItemL
 
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public void turnsChangeOccurs() {
+        historyAdapter.notifyDataSetChanged();
     }
 }

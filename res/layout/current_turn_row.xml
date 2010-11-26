@@ -14,7 +14,6 @@
                 android:layout_column="1"
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
-                android:textStyle="bold"
                 android:gravity="center_vertical"
                 />
         <TextView
