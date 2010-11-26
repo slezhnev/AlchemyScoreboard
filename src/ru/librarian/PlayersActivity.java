@@ -39,7 +39,8 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         actionDialog.findViewById(R.id.playerActionMoveUp).setOnClickListener(this);
         actionDialog.findViewById(R.id.playerActionMoveDown).setOnClickListener(this);
         actionDialog.findViewById(R.id.playerActionEdit).setOnClickListener(this);
-        actionDialog.findViewById(R.id.playerActionDelete).setOnClickListener(this);        
+        actionDialog.findViewById(R.id.playerActionRecalc).setOnClickListener(this);        
+        actionDialog.findViewById(R.id.playerActionDelete).setOnClickListener(this);
         actionDialog.setOwnerActivity(this);
     }
 
@@ -134,6 +135,15 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
             intent.putExtra("ru.librarian.playerName", "");
             intent.putExtra("ru.librarian.playerColor", Color.parseColor("#FFFFFF"));
             startActivity(intent);
+        } else if (v.getId() == R.id.playerActionRecalc) {
+            // Пойдем пересчитаем его счет - мало ли, вдруг чего взглючило
+            int score = 0;
+            for (Turn turn : PlayersStorage.getTurns()) {
+                if (operationalPlayer == turn.getPlayer()) {
+                    score = score + turn.getScoreDiff();
+                }
+            }
+            PlayersStorage.addPlayerScore(this, operationalPlayer, score - operationalPlayer.getScore());
         }
     }
 }

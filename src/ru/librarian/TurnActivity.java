@@ -50,7 +50,7 @@ public class TurnActivity extends ListActivity implements ChangeNotification, Tu
         // Убираем нотификатор
         PlayersStorage.getCurrentPlayerChangeNotificators().remove(this);
         // Убираем еще нотификатор
-        PlayersStorage.getTurnsChnageNotificators().remove(this);        
+        PlayersStorage.getTurnsChnageNotificators().remove(this);
     }
 
     /**
@@ -110,7 +110,10 @@ public class TurnActivity extends ListActivity implements ChangeNotification, Tu
      * @param v View
      */
     public void removeLastClickListener(View v) {
-        //TODO Доделать!
+        if (PlayersStorage.getTurns().size() > 0) {
+            // Значит можем отменять. Отменяем...
+            PlayersStorage.removeTurn(this, PlayersStorage.getTurns().get(PlayersStorage.getTurns().size() - 1));
+        }
     }
 
     public PlayerAdapter getPlayerAdapter() {
@@ -154,6 +157,13 @@ public class TurnActivity extends ListActivity implements ChangeNotification, Tu
             } else {
                 pName.setTextColor(Color.parseColor("#FF9999"));
             }
+        } else {
+            TextView pName = (TextView) findViewById(R.id.lastTurnName);
+            pName.setText("-");
+            pName.setTextColor(Color.parseColor("#99FF99"));
+            pName = (TextView) findViewById(R.id.lastTurnCount);
+            pName.setText("-");
+            pName.setTextColor(Color.parseColor("#99FF99"));
         }
     }
 

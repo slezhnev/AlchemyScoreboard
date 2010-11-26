@@ -56,6 +56,7 @@ public class PlayersStorage {
     private static List<TurnsChangeNotification> turnsChnageNotificators = Collections.synchronizedList(new ArrayList<TurnsChangeNotification>());
 
     //
+
     public static ArrayList<Player> getPlayers() {
         return players;
     }
@@ -90,17 +91,8 @@ public class PlayersStorage {
             Turn turn = new Turn();
             turn.setPlayer(player).setScoreDiff(scoreDiff);
             turns.add(turn);
-            saveTurn(activity, turn, turns.size()-1);
+            saveTurn(activity, turn, turns.size() - 1);
             turnsChanged();
-        }
-    }
-
-    /**
-     * Вызыватель нотификаторов об изменении списка ходов
-     */
-    private static void turnsChanged() {
-        for (TurnsChangeNotification notificator : turnsChnageNotificators) {
-            notificator.turnsChangeOccurs();
         }
     }
 
@@ -249,6 +241,8 @@ public class PlayersStorage {
                 playersChanged();
                 // Сохраняем
                 savePlayers(activity);
+                // Удаляем ходы с этим игроком
+                removeTurnsByPlayer(activity, player);
                 // Пошли отсель
                 break;
             }
@@ -327,7 +321,7 @@ public class PlayersStorage {
                 // Если вдруг текущего игрока не нашлось - то выставляем ПЕРВОГО
                 PlayersStorage.setCurrentPlayer(activity, PlayersStorage.getPlayers().get(0));
             }
-        }        
+        }
     }
 
     public static List<Turn> getTurns() {
@@ -344,7 +338,7 @@ public class PlayersStorage {
 
     public static void saveTurns(Activity activity) {
         for (int i = 0; i < turns.size(); i++) {
-            saveTurn ( activity, turns.get(i), i);
+            saveTurn(activity, turns.get(i), i);
         }
     }
 
@@ -367,10 +361,49 @@ public class PlayersStorage {
                 }
             }
         }
-       turnsChanged();
+        turnsChanged();
     }
 
     public static List<TurnsChangeNotification> getTurnsChnageNotificators() {
         return turnsChnageNotificators;
     }
+
+    private static void removeTurnsByPlayer (Activity activity, Player player) {
+        int i = 0;
+        while (i < turns.size()) {
+            if (player.getPlayerName().equals(turns.get(i).getPlayer().getPlayerName())) {
+                // Нашли - это ход удаляемого игрока
+                turns.remove(i);
+            } else {
+                i++;
+            }
+        }
+        // Теперь - струльнем...
+        turnsChanged();
+        saveTurns(activity);
+    }
+
+    public static void removeTurn(Activity activity, Turn turn) {
+        if (players.indexOf(turn.getPlayer()) != -1) {
+            // Еще обработаем score у игрока
+            turn.getPlayer().setScore(turn.getPlayer().getScore() - turn.getScoreDiff());
+            playersChanged();
+            savePlayer(activity, turn.getPlayer());
+            //addPlayerScore(activity, turn.getPlayer(), 0 - turn.getScoreDiff());
+        }
+        turns.remove(turn);
+        turnsChanged();
+        saveTurns(activity);
+    }
+
+    /**
+     * Вызыватель нотификаторов об изменении списка ходов
+     */
+    private static void turnsChanged() {
+        for (TurnsChangeNotification notificator : turnsChnageNotificators) {
+            notificator.turnsChangeOccurs();
+        }
+    }
+
+    
 }

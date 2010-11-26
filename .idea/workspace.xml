@@ -4,16 +4,16 @@
     <list default="true" readonly="true" id="fa9fcfe6-877a-48f7-9b5d-46140c19e3f8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/librarian/TurnsChangeNotification.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/current_turn_row.xml" afterPath="$PROJECT_DIR$/res/layout/current_turn_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/ru/librarian/R.java" afterPath="$PROJECT_DIR$/gen/ru/librarian/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java" afterPath="$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/player_action.xml" afterPath="$PROJECT_DIR$/res/layout/player_action.xml" />
     </list>
-    <ignored path="AlchemyScoreboard.iws" />
+    <ignored path="$USER_HOME_GRAILS$/" />
     <ignored path="$USER_HOME_GRIFFON$/" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="$USER_HOME_GRAILS$/" />
+    <ignored path="AlchemyScoreboard.iws" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,21 +29,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" line="143" class="ru.librarian.TurnActivity" package="ru.librarian">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -85,10 +70,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayersStorage.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PlayersStorage.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="369" column="22" selection-start="14112" selection-end="14112" vertical-scroll-proportion="0.82433987">
+            <state line="378" column="85" selection-start="14454" selection-end="14454" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,7 +82,7 @@
       <file leaf-file-name="TurnActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/librarian/TurnActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="161" selection-start="5806" selection-end="5806" vertical-scroll-proportion="0.0">
+            <state line="142" column="82" selection-start="5457" selection-end="5457" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,7 +100,25 @@
       <file leaf-file-name="HistoryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="44" selection-start="755" selection-end="755" vertical-scroll-proportion="0.0">
+            <state line="61" column="0" selection-start="2194" selection-end="2194" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayersActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="145" column="0" selection-start="6791" selection-end="6791" vertical-scroll-proportion="0.8828932">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="player_action.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/player_action.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="42" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,11 +156,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/player_action.xml" />
         <option value="$PROJECT_DIR$/res/layout/player_param.xml" />
         <option value="$PROJECT_DIR$/res/layout/players.xml" />
         <option value="$PROJECT_DIR$/src/ru/librarian/PlayerParamActivity.java" />
-        <option value="$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java" />
         <option value="$PROJECT_DIR$/src/ru/librarian/Turn.java" />
         <option value="$PROJECT_DIR$/res/layout/history_action.xml" />
         <option value="$PROJECT_DIR$/src/ru/librarian/HistoryAdapter.java" />
@@ -166,9 +167,11 @@
         <option value="$PROJECT_DIR$/res/layout/history.xml" />
         <option value="$PROJECT_DIR$/res/layout/current_turn_row.xml" />
         <option value="$PROJECT_DIR$/src/ru/librarian/TurnsChangeNotification.java" />
-        <option value="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" />
         <option value="$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java" />
         <option value="$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java" />
+        <option value="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/player_action.xml" />
+        <option value="$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java" />
       </list>
     </option>
   </component>
@@ -232,7 +235,6 @@
         <subPane />
       </pane>
       <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,6 +305,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,8 +323,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -332,6 +335,23 @@
     </key>
   </component>
   <component name="RunManager" selected="Android Application.AlchemyScoreboard">
+    <configuration default="true" type="PhpRunConfigurationType" factoryName="PHP">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="FtpUpload" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="ValidateXdebugSetup" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="ValidateXdebugSetup" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -363,6 +383,14 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -403,6 +431,15 @@
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="FtpUpload" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="ValidateXdebugSetup" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -530,15 +567,15 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3986637" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1667569" sideWeight="0.19599108" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1667569" sideWeight="0.66592425" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1664859" sideWeight="0.66592425" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32628062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -584,11 +621,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayerParamActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="68" selection-start="2290" selection-end="2290" vertical-scroll-proportion="0.4073634" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/player_row.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -604,14 +636,29 @@
         <state line="16" column="13" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="128" selection-start="688" selection-end="688" vertical-scroll-proportion="0.2624703" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/librarian/HistoryAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="0" selection-start="1785" selection-end="2005" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/current_turn_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="518" selection-end="518" vertical-scroll-proportion="0.31228474" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/turn.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="77" selection-start="3283" selection-end="3283" vertical-scroll-proportion="0.5464983" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/librarian/TurnsChangeNotification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="22" selection-start="280" selection-end="280" vertical-scroll-proportion="0.23421355" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/librarian/AlchemyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="266" selection-end="266" vertical-scroll-proportion="-0.7055336" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/librarian/Turn.java">
@@ -629,51 +676,37 @@
         <state line="20" column="38" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/current_turn_row.xml">
+    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="518" selection-end="518" vertical-scroll-proportion="0.31228474">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/turn.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="77" selection-start="3283" selection-end="3283" vertical-scroll-proportion="0.5464983">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/TurnsChangeNotification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="280" selection-end="280" vertical-scroll-proportion="0.23421355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="44" selection-start="755" selection-end="755" vertical-scroll-proportion="0.0">
+        <state line="378" column="85" selection-start="14454" selection-end="14454" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/librarian/TurnActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="161" selection-start="5806" selection-end="5806" vertical-scroll-proportion="0.0">
+        <state line="142" column="82" selection-start="5457" selection-end="5457" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/AlchemyActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/player_action.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="266" selection-end="266" vertical-scroll-proportion="-0.7055336">
+        <state line="26" column="42" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="369" column="22" selection-start="14112" selection-end="14112" vertical-scroll-proportion="0.82433987">
+        <state line="61" column="0" selection-start="2194" selection-end="2194" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="0" selection-start="6791" selection-end="6791" vertical-scroll-proportion="0.8828932">
           <folding />
         </state>
       </provider>

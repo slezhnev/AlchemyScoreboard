@@ -21,6 +21,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Изменить имя / цвет"/>
+    <Button android:id="@+id/playerActionRecalc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Пересчитать счет"/>
     <Button android:id="@+id/playerActionDelete"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

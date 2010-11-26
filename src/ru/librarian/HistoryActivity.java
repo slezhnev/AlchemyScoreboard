@@ -4,7 +4,9 @@
 
 package ru.librarian;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,8 +47,23 @@ public class HistoryActivity extends ListActivity implements AdapterView.OnItemL
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int position, long id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Удалить выбранный ход?")
+                .setCancelable(false)
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        PlayersStorage.removeTurn(HistoryActivity.this, PlayersStorage.getTurns().get(position));
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        builder.create().show();
+        return true;        
     }
 
     public void turnsChangeOccurs() {
