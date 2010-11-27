@@ -2,32 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="fa9fcfe6-877a-48f7-9b5d-46140c19e3f8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/empty_listview_selector.xml" afterPath="$PROJECT_DIR$/res/drawable/empty_listview_selector.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/red_button_bgnd.xml" afterPath="$PROJECT_DIR$/res/drawable/red_button_bgnd.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/turn.xml" afterPath="$PROJECT_DIR$/res/layout/turn.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java" afterPath="$PROJECT_DIR$/src/ru/librarian/PlayersStorage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ic_menu_add.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/players.xml" afterPath="$PROJECT_DIR$/res/layout/players.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/history_menu.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/turn_menu.xml" />
-      <change type="DELETED" beforePath="H:\JavaProjects\AlchemyScoreboard\res\drawable\button_1.9.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/player_row.xml" afterPath="$PROJECT_DIR$/res/layout/player_row.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ic_menu_gallery.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/players_context_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/ru/librarian/R.java" afterPath="$PROJECT_DIR$/gen/ru/librarian/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ic_menu_info_details.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/player_param.xml" afterPath="$PROJECT_DIR$/res/layout/player_param.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/players_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java" />
-      <change type="DELETED" beforePath="H:\JavaProjects\AlchemyScoreboard\res\drawable\button.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/librarian/AlchemyActivity.java" afterPath="$PROJECT_DIR$/src/ru/librarian/AlchemyActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ic_menu_close_clear_cancel.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/turn_row.xml" afterPath="$PROJECT_DIR$/res/layout/turn_row.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/copy.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/Lsv.xml" afterPath="$PROJECT_DIR$/.idea/copyright/Lsv.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/undo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/history.xml" afterPath="$PROJECT_DIR$/res/layout/history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/green_button_bgnd.xml" afterPath="$PROJECT_DIR$/res/drawable/green_button_bgnd.xml" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="AlchemyScoreboard.iws" />
@@ -118,7 +113,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="46" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
+            <state line="15" column="46" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -136,7 +131,7 @@
       <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/ru/librarian/R.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="31" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+            <state line="14" column="31" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,25 +140,7 @@
       <file leaf-file-name="TurnActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/librarian/TurnActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="4" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.12945369">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="turn.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/turn.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="51" selection-start="6256" selection-end="6256" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayersActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="83" selection-start="4747" selection-end="4747" vertical-scroll-proportion="0.0">
+            <state line="147" column="29" selection-start="5355" selection-end="5355" vertical-scroll-proportion="0.3111639">
               <folding />
             </state>
           </provider>
@@ -188,7 +165,6 @@
         <option value="$PROJECT_DIR$/res/menu/turn_menu.xml" />
         <option value="$PROJECT_DIR$/res/menu/history_menu.xml" />
         <option value="$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/res/layout/player_param.xml" />
         <option value="$PROJECT_DIR$/res/layout/turn.xml" />
         <option value="$PROJECT_DIR$/res/layout/player_row.xml" />
@@ -199,6 +175,7 @@
         <option value="$PROJECT_DIR$/src/ru/librarian/AlchemyActivity.java" />
         <option value="$PROJECT_DIR$/gen/ru/librarian/R.java" />
         <option value="$PROJECT_DIR$/src/ru/librarian/TurnActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
       </list>
     </option>
   </component>
@@ -215,21 +192,7 @@
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id>Inspections</id>
-          </State>
-          <State>
-            <id>Spelling</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Spelling</id>
-          </State>
-        </selected-state>
-      </profile-state>
+      <profile-state />
     </entry>
   </component>
   <component name="ProjectLevelVcsManager">
@@ -656,11 +619,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/drawable/ic_tab_grey.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -669,11 +627,6 @@
     <entry file="file://$PROJECT_DIR$/res/layout/player_param.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="209" selection-end="209" vertical-scroll-proportion="0.16152018" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="144" selection-end="176" vertical-scroll-proportion="0.08076009" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/librarian/HistoryActivity.java">
@@ -696,11 +649,6 @@
         <state line="18" column="58" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/turn.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="51" selection-start="6256" selection-end="6256" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="13" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" />
@@ -713,16 +661,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="83" selection-start="4747" selection-end="4747" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="46" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
+        <state line="15" column="46" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -736,14 +677,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/ru/librarian/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+        <state line="14" column="31" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/librarian/PlayersActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="83" selection-start="4747" selection-end="4747" vertical-scroll-proportion="0.22209026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/empty_listview_selector.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="89" selection-end="872" vertical-scroll-proportion="0.16152018">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/turn.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="47" selection-start="6257" selection-end="6257" vertical-scroll-proportion="0.020190023">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/librarian/TurnActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="4" selection-start="4982" selection-end="4982" vertical-scroll-proportion="0.12945369">
+        <state line="147" column="29" selection-start="5355" selection-end="5355" vertical-scroll-proportion="0.3111639">
           <folding />
         </state>
       </provider>
