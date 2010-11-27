@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2010. Сергей Лежнев
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/playerActionAddMI"
+          android:icon="@drawable/ic_menu_add"
+          android:title="Добавить игрока" />
+    <item android:id="@+id/playerActionStartNewGameMI"
+          android:icon="@drawable/ic_menu_close_clear_cancel"
+          android:title="Начать новую партию" />
+</menu>

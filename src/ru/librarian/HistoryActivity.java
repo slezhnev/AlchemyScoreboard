@@ -8,10 +8,13 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
-public class HistoryActivity extends ListActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener, TurnsChangeNotification {
+public class HistoryActivity extends ListActivity implements AdapterView.OnItemLongClickListener, TurnsChangeNotification {
 
     private HistoryAdapter historyAdapter;
 
@@ -43,8 +46,19 @@ public class HistoryActivity extends ListActivity implements AdapterView.OnItemL
         PlayersStorage.getTurnsChnageNotificators().remove(this);
     }
 
-    public void onClick(View view) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.history_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.historyActionStartNewGameMI) {
+            PlayersStorage.startNewGame(this, getListView().getContext());
+        }
+        return true;
     }
 
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int position, long id) {
@@ -63,7 +77,7 @@ public class HistoryActivity extends ListActivity implements AdapterView.OnItemL
                     }
                 });
         builder.create().show();
-        return true;        
+        return true;
     }
 
     public void turnsChangeOccurs() {

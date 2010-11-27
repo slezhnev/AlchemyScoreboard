@@ -8,7 +8,6 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TabHost;
 
 public class AlchemyActivity extends TabActivity {
@@ -32,20 +31,20 @@ public class AlchemyActivity extends TabActivity {
 
         // Initialize a TabSpec for each tab and add it to the TabHost
         spec = tabHost.newTabSpec("turn").setIndicator("Текущий ход",
-                res.getDrawable(R.drawable.ic_tab_main))
+                res.getDrawable(R.drawable.ic_menu_gallery))
                 .setContent(intent);
         tabHost.addTab(spec);
 
         // Do the same for the other tabs
         intent = new Intent().setClass(this, PlayersActivity.class);
         spec = tabHost.newTabSpec("players").setIndicator("Игроки",
-                res.getDrawable(R.drawable.ic_tab_main))
+                res.getDrawable(R.drawable.copy))
                 .setContent(intent);
         tabHost.addTab(spec);
 
         intent = new Intent().setClass(this, HistoryActivity.class);
         spec = tabHost.newTabSpec("history").setIndicator("История",
-                res.getDrawable(R.drawable.ic_tab_main))
+                res.getDrawable(R.drawable.ic_menu_info_details))
                 .setContent(intent);
         tabHost.addTab(spec);
 

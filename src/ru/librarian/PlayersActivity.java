@@ -12,7 +12,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.view.View;
+import android.view.*;
 import android.widget.AdapterView;
 
 public class PlayersActivity extends ListActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener {
@@ -29,7 +29,7 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         playerAdapter = new PlayerAdapter(this, R.layout.player_row, R.id.playerLVLeftText, R.id.playerLVRightText);
         setListAdapter(playerAdapter);
         //
-        getListView().setOnItemLongClickListener(this);
+        //getListView().setOnItemLongClickListener(this);        
         //
         // Создаем диалог
         actionDialog = new Dialog(this);
@@ -39,7 +39,7 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         actionDialog.findViewById(R.id.playerActionMoveUp).setOnClickListener(this);
         actionDialog.findViewById(R.id.playerActionMoveDown).setOnClickListener(this);
         actionDialog.findViewById(R.id.playerActionEdit).setOnClickListener(this);
-        actionDialog.findViewById(R.id.playerActionRecalc).setOnClickListener(this);        
+        actionDialog.findViewById(R.id.playerActionRecalc).setOnClickListener(this);
         actionDialog.findViewById(R.id.playerActionDelete).setOnClickListener(this);
         actionDialog.setOwnerActivity(this);
     }
@@ -50,7 +50,12 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         // Добавлем адаптер для нотификации об изменении списка
         PlayersStorage.getPlayersAdapters().add(playerAdapter);
         // И надо не забыть дернуть нотификацию прям тут! А то мало ли - вдруг список менялся?
+        doDataNotification();
+    }
+
+    private void doDataNotification() {
         playerAdapter.notifyDataSetChanged();
+        registerForContextMenu(getListView());
     }
 
     @Override
@@ -58,6 +63,82 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         super.onStop();
         // Убираем адаптер из списка нотификаторов
         PlayersStorage.getPlayersAdapters().remove(playerAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.players_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.playerActionAddMI) {
+            // Добавляем...
+            Intent intent = new Intent().setClass(this, PlayerParamActivity.class);
+            intent.putExtra("ru.librarian.playerName", "");
+            intent.putExtra("ru.librarian.playerColor", Color.parseColor("#FFFFFF"));
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.playerActionStartNewGameMI) {
+            PlayersStorage.startNewGame(this, getListView().getContext());
+        }
+        return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        AdapterView.AdapterContextMenuInfo mInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.players_context_menu, menu);
+        operationalPlayer = PlayersStorage.getPlayers().get(mInfo.position);
+        if (mInfo.position == 0) {
+            // Hardcoded, конечно, по пока разбираться не буду
+            menu.getItem(0).setEnabled(false);
+        } else {
+            menu.getItem(0).setEnabled(true);
+        }
+        if (mInfo.position == (PlayersStorage.getPlayers().size() - 1)) {
+            menu.getItem(1).setEnabled(false);
+        } else {
+            menu.getItem(2).setEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.playerActionEditMI) {
+            Intent intent = new Intent().setClass(this, PlayerParamActivity.class);
+            intent.putExtra("ru.librarian.playerName", operationalPlayer.getPlayerName());
+            intent.putExtra("ru.librarian.playerColor", operationalPlayer.getColor());
+            startActivity(intent);
+            actionDialog.dismiss();
+        } else if (item.getItemId() == R.id.playerActionDeleteMI) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Вы действительно хотите удалить текущего игрока?")
+                    .setCancelable(false)
+                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            PlayersStorage.removePlayer(PlayersActivity.this, PlayersActivity.this.operationalPlayer.getPlayerName());
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            builder.create().show();
+        } else if (item.getItemId() == R.id.playerActionMoveDownMI) {
+            PlayersStorage.movePlayerDown(this, operationalPlayer);
+        } else if (item.getItemId() == R.id.playerActionMoveUpMI) {
+            PlayersStorage.movePlayerUp(this, operationalPlayer);
+        } else if (item.getItemId() == R.id.playerActionRecalcMI) {
+            // Пойдем пересчитаем его счет - мало ли, вдруг чего взглючило
+            PlayersStorage.recalcPlayerScore(this, operationalPlayer);
+        }
+        return true;
     }
 
     @Override
@@ -85,7 +166,7 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
             } else {
                 actionDialog.findViewById(R.id.playerActionMoveUp).setEnabled(true);
             }
-            if (position == (PlayersStorage.getPlayers().size()-1)) {
+            if (position == (PlayersStorage.getPlayers().size() - 1)) {
                 actionDialog.findViewById(R.id.playerActionMoveDown).setEnabled(false);
             } else {
                 actionDialog.findViewById(R.id.playerActionMoveDown).setEnabled(true);
@@ -129,12 +210,12 @@ public class PlayersActivity extends ListActivity implements AdapterView.OnItemL
         } else if (v.getId() == R.id.playerActionMoveUp) {
             PlayersStorage.movePlayerUp(this, operationalPlayer);
             actionDialog.dismiss();
-        } else if (v.getId() == R.id.playersAddPlayer) {
+            /*} else if (v.getId() == R.id.playersAddPlayer) {
             // Добавляем...
             Intent intent = new Intent().setClass(this, PlayerParamActivity.class);
             intent.putExtra("ru.librarian.playerName", "");
             intent.putExtra("ru.librarian.playerColor", Color.parseColor("#FFFFFF"));
-            startActivity(intent);
+            startActivity(intent);*/
         } else if (v.getId() == R.id.playerActionRecalc) {
             // Пойдем пересчитаем его счет - мало ли, вдруг чего взглючило
             int score = 0;

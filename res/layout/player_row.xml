@@ -14,15 +14,15 @@
                 android:id="@+id/playerLVLeftText"
                 android:layout_column="1"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
                 android:gravity="center_vertical"
+                android:textSize="20sp"
                 />
         <TextView
                 android:id="@+id/playerLVRightText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
                 android:gravity="right"
+                android:textSize="20sp"
                 />
     </TableRow>
 </TableLayout>

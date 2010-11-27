@@ -5,7 +5,9 @@
 package ru.librarian;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 
@@ -94,6 +96,24 @@ public class PlayersStorage {
             saveTurn(activity, turn, turns.size() - 1);
             turnsChanged();
         }
+    }
+
+    /**
+     * Пересчитывает счет игрока
+     *
+     * @param activity Activity для сохранения
+     * @param player   Игрок, у которого пересчитывать score
+     */
+    public static void recalcPlayerScore(Activity activity, Player player) {
+        int score = 0;
+        for (Turn turn : PlayersStorage.getTurns()) {
+            if (player == turn.getPlayer()) {
+                score = score + turn.getScoreDiff();
+            }
+        }
+        player.setScore(score);
+        playersChanged();
+        savePlayer(activity, player);
     }
 
     /**
@@ -368,7 +388,7 @@ public class PlayersStorage {
         return turnsChnageNotificators;
     }
 
-    private static void removeTurnsByPlayer (Activity activity, Player player) {
+    private static void removeTurnsByPlayer(Activity activity, Player player) {
         int i = 0;
         while (i < turns.size()) {
             if (player.getPlayerName().equals(turns.get(i).getPlayer().getPlayerName())) {
@@ -405,5 +425,37 @@ public class PlayersStorage {
         }
     }
 
-    
+
+    /**
+     * Начинает новую игру
+     *
+     * @param activity Activity для сохранения
+     * @param context  Context для создания спрашивательного диалога
+     */
+    public static void startNewGame(final Activity activity, Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Вы действительно хотите начать новую партию?")
+                .setCancelable(false)
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        turns.clear();
+                        turnsChanged();
+                        saveTurns(activity);
+                        // Второе - сбрасываем у всех игроков счет в 0
+                        for (Player player : players) {
+                            player.setScore(0);
+                        }
+                        playersChanged();
+                        savePlayers(activity);
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        builder.create().show();
+        // Так. Первый шаг - очищаем список ходов
+    }
 }

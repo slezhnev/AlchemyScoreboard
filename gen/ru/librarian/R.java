@@ -11,54 +11,66 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int button=0x7f020000;
-        public static final int button_1=0x7f020001;
-        public static final int empty_listview_selector=0x7f020002;
-        public static final int green_button=0x7f020003;
-        public static final int green_button_bgnd=0x7f020004;
-        public static final int green_button_pressed=0x7f020005;
-        public static final int ic_tab_grey=0x7f020006;
-        public static final int ic_tab_main=0x7f020007;
-        public static final int ic_tab_white=0x7f020008;
-        public static final int icon=0x7f020009;
-        public static final int red_button=0x7f02000a;
-        public static final int red_button_bgnd=0x7f02000b;
-        public static final int red_button_pressed=0x7f02000c;
+        public static final int copy=0x7f020000;
+        public static final int empty_listview_selector=0x7f020001;
+        public static final int green_button=0x7f020002;
+        public static final int green_button_bgnd=0x7f020003;
+        public static final int green_button_pressed=0x7f020004;
+        public static final int ic_menu_add=0x7f020005;
+        public static final int ic_menu_close_clear_cancel=0x7f020006;
+        public static final int ic_menu_gallery=0x7f020007;
+        public static final int ic_menu_info_details=0x7f020008;
+        public static final int ic_tab_grey=0x7f020009;
+        public static final int ic_tab_main=0x7f02000a;
+        public static final int ic_tab_white=0x7f02000b;
+        public static final int icon=0x7f02000c;
+        public static final int red_button=0x7f02000d;
+        public static final int red_button_bgnd=0x7f02000e;
+        public static final int red_button_pressed=0x7f02000f;
+        public static final int undo=0x7f020010;
     }
     public static final class id {
-        public static final int counterHorzLineTable=0x7f06001e;
-        public static final int currPlayerName=0x7f06000e;
-        public static final int horzLineTable=0x7f060019;
-        public static final int lastTurnCancelBtn=0x7f06001d;
-        public static final int lastTurnCount=0x7f06001c;
-        public static final int lastTurnName=0x7f06001b;
-        public static final int lastTurnTable=0x7f06001a;
-        public static final int minus5=0x7f060016;
-        public static final int nextTurnBtn=0x7f060018;
-        public static final int playerActionDelete=0x7f060006;
-        public static final int playerActionEdit=0x7f060004;
-        public static final int playerActionMoveDown=0x7f060003;
-        public static final int playerActionMoveUp=0x7f060002;
-        public static final int playerActionRecalc=0x7f060005;
-        public static final int playerColorView=0x7f060008;
-        public static final int playerLVLeftText=0x7f06000b;
-        public static final int playerLVRightText=0x7f06000c;
-        public static final int playerNameEdt=0x7f060007;
-        public static final int playerParamCancel=0x7f06000a;
-        public static final int playerParamOk=0x7f060009;
-        public static final int playersAddPlayer=0x7f06000d;
-        public static final int plus1=0x7f06000f;
-        public static final int plus10=0x7f060015;
-        public static final int plus2=0x7f060010;
-        public static final int plus3=0x7f060011;
-        public static final int plus4=0x7f060012;
-        public static final int plus6=0x7f060013;
-        public static final int plus8=0x7f060014;
-        public static final int prevTurnBtn=0x7f060017;
-        public static final int turnLVLeftText=0x7f060000;
-        public static final int turnLVRightText=0x7f060001;
-        public static final int turnsLVLeftText=0x7f06001f;
-        public static final int turnsLVRightText=0x7f060020;
+        public static final int counterHorzLineTable=0x7f07001c;
+        public static final int currPlayerName=0x7f07000d;
+        public static final int historyActionStartNewGameMI=0x7f07001f;
+        public static final int horzLineTable=0x7f070018;
+        public static final int lastTurnCount=0x7f07001b;
+        public static final int lastTurnName=0x7f07001a;
+        public static final int lastTurnTable=0x7f070019;
+        public static final int minus5=0x7f070015;
+        public static final int nextTurnBtn=0x7f070017;
+        public static final int playerActionAddMI=0x7f070025;
+        public static final int playerActionDelete=0x7f070006;
+        public static final int playerActionDeleteMI=0x7f070024;
+        public static final int playerActionEdit=0x7f070004;
+        public static final int playerActionEditMI=0x7f070022;
+        public static final int playerActionMoveDown=0x7f070003;
+        public static final int playerActionMoveDownMI=0x7f070021;
+        public static final int playerActionMoveUp=0x7f070002;
+        public static final int playerActionMoveUpMI=0x7f070020;
+        public static final int playerActionRecalc=0x7f070005;
+        public static final int playerActionRecalcMI=0x7f070023;
+        public static final int playerActionStartNewGameMI=0x7f070026;
+        public static final int playerColorView=0x7f070008;
+        public static final int playerLVLeftText=0x7f07000b;
+        public static final int playerLVRightText=0x7f07000c;
+        public static final int playerNameEdt=0x7f070007;
+        public static final int playerParamCancel=0x7f07000a;
+        public static final int playerParamOk=0x7f070009;
+        public static final int plus1=0x7f07000e;
+        public static final int plus10=0x7f070014;
+        public static final int plus2=0x7f07000f;
+        public static final int plus3=0x7f070010;
+        public static final int plus4=0x7f070011;
+        public static final int plus6=0x7f070012;
+        public static final int plus8=0x7f070013;
+        public static final int prevTurnBtn=0x7f070016;
+        public static final int turnActionStartNewGameMI=0x7f070028;
+        public static final int turnLVLeftText=0x7f070000;
+        public static final int turnLVRightText=0x7f070001;
+        public static final int turnRemoveLastMI=0x7f070027;
+        public static final int turnsLVLeftText=0x7f07001d;
+        public static final int turnsLVRightText=0x7f07001e;
     }
     public static final class layout {
         public static final int current_turn_row=0x7f030000;
@@ -70,6 +82,12 @@ public final class R {
         public static final int players=0x7f030006;
         public static final int turn=0x7f030007;
         public static final int turn_row=0x7f030008;
+    }
+    public static final class menu {
+        public static final int history_menu=0x7f060000;
+        public static final int players_context_menu=0x7f060001;
+        public static final int players_menu=0x7f060002;
+        public static final int turn_menu=0x7f060003;
     }
     public static final class string {
         public static final int app_name=0x7f050001;

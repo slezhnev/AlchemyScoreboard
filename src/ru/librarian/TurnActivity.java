@@ -7,6 +7,9 @@ package ru.librarian;
 import android.app.ListActivity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,6 +54,23 @@ public class TurnActivity extends ListActivity implements ChangeNotification, Tu
         PlayersStorage.getCurrentPlayerChangeNotificators().remove(this);
         // Убираем еще нотификатор
         PlayersStorage.getTurnsChnageNotificators().remove(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.turn_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.turnRemoveLastMI) {
+            removeLastClickListener(getListView());
+        } else if (item.getItemId() == R.id.turnActionStartNewGameMI) {
+            PlayersStorage.startNewGame(this, getListView().getContext());
+        }
+        return true;
     }
 
     /**
@@ -114,10 +134,6 @@ public class TurnActivity extends ListActivity implements ChangeNotification, Tu
             // Значит можем отменять. Отменяем...
             PlayersStorage.removeTurn(this, PlayersStorage.getTurns().get(PlayersStorage.getTurns().size() - 1));
         }
-    }
-
-    public PlayerAdapter getPlayerAdapter() {
-        return playerAdapter;
     }
 
     /**
