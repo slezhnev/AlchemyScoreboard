@@ -5,8 +5,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="ru.librarian"
-          android:versionCode="3"
-          android:versionName="1.0.2">
+          android:versionCode="4"
+          android:versionName="1.0.3">
     <uses-permission android:name="android.permission.READ_OWNER_DATA"/>
     <uses-permission android:name="android.permission.WRITE_OWNER_DATA"/>
     <uses-sdk android:minSdkVersion="7"/>

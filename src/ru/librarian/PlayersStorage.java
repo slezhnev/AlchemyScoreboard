@@ -357,6 +357,11 @@ public class PlayersStorage {
     }
 
     public static void saveTurns(Activity activity) {
+        if (turns.size() == 0) {
+            SharedPreferences.Editor editor = activity.getSharedPreferences("AlchemyScoreboard.Turns", Context.MODE_PRIVATE).edit();
+            editor.putInt("turnsCount", turns.size());
+            editor.commit();            
+        }
         for (int i = 0; i < turns.size(); i++) {
             saveTurn(activity, turns.get(i), i);
         }
